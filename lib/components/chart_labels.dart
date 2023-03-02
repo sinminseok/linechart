@@ -29,22 +29,22 @@ class ChartDayLabels extends StatelessWidget {
         ),
       ),
       child: Padding(
-        padding: EdgeInsets.only(left: leftPadding, right: rightPadding),
+        padding: EdgeInsets.only(left: 40, right:40),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+          children: ['1', '2', '3', '4', '5', '6', '7','8','9','10','11']
               .asMap()
               .entries
               .map(
                 (entry) => FractionalTranslation(
                   translation: labelOffset(7, entry.key.toDouble()),
                   child: SizedBox(
-                    width: 36,
+                    width: 17,
                     child: Text(
                       entry.value,
                       textAlign: TextAlign.center,
                       style: const TextStyle(
-                        fontSize: 14,
+                        fontSize: 13,
                         fontWeight: FontWeight.w600,
                         color: Color(0xFFA9A9A9),
                       ),

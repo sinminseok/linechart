@@ -58,7 +58,7 @@ class _SlideSelectorState extends State<SlideSelector> {
   Widget build(BuildContext context) {
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-      final buttonWidth = (constraints.maxWidth) / 3;
+      final buttonWidth = (constraints.maxWidth) / 2;
       return Container(
         height: 52,
         decoration: BoxDecoration(

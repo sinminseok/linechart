@@ -68,14 +68,11 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard>
     with SingleTickerProviderStateMixin {
-  int activeWeek = 3;
+  int activeWeek = 2;
   static const leftPadding = 60.0;
   static const rightPadding = 60.0;
 
-  PageController summaryController = PageController(
-    viewportFraction: 1,
-    initialPage: 3,
-  );
+
   double chartHeight = 240;
   late List<ChartDataPoint> chartData;
 
@@ -83,7 +80,7 @@ class _DashboardState extends State<Dashboard>
   void initState() {
     super.initState();
     setState(() {
-      chartData = normalizeData(weeksData[activeWeek - 1]);
+      chartData = normalizeData(hourData[activeWeek - 1]);
     });
   }
 
@@ -102,9 +99,8 @@ class _DashboardState extends State<Dashboard>
   void changeWeek(int week) {
     setState(() {
       activeWeek = week;
-      chartData = normalizeData(weeksData[week - 1]);
-      summaryController.animateToPage(week,
-          duration: const Duration(milliseconds: 300), curve: Curves.ease);
+      chartData = normalizeData(hourData[week - 1]);
+
     });
   }
 
@@ -145,30 +141,37 @@ class _DashboardState extends State<Dashboard>
         ListView(
           padding: EdgeInsets.zero,
           children: [
-
+            Container(
+              height: 60,
+              margin: const EdgeInsets.only(top: 60),
+              alignment: Alignment.center,
+              child: const Text(
+                'LOL 😆 Tracker',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white,
+                ),
+              ),
+            ),
             Padding(
               padding: const EdgeInsets.all(20),
               child: SlideSelector(
-                defaultSelectedIndex: activeWeek - 1,
+                defaultSelectedIndex: activeWeek - 2,
                 items: <SlideSelectorItem>[
                   SlideSelectorItem(
-                    text: 'Week 1',
+                    text: '오전',
                     onTap: () {
                       changeWeek(1);
                     },
                   ),
                   SlideSelectorItem(
-                    text: 'Week 2',
+                    text: '오후',
                     onTap: () {
                       changeWeek(2);
                     },
                   ),
-                  SlideSelectorItem(
-                    text: 'Week 3',
-                    onTap: () {
-                      changeWeek(3);
-                    },
-                  ),
+
                 ],
               ),
             ),
@@ -178,13 +181,17 @@ class _DashboardState extends State<Dashboard>
               color: const Color(0xFF158443),
               child: Stack(
                 children: [
+                  //아침데이터
                   ChartLaughLabels(
                     chartHeight: chartHeight,
                     topPadding: 40,
                     leftPadding: leftPadding,
                     rightPadding: rightPadding,
-                    weekData: weeksData[activeWeek - 1],
+                    weekData: hourData[activeWeek - 1],
                   ),
+
+
+
                   const Positioned(
                     bottom: 0,
                     left: 0,
@@ -207,19 +214,7 @@ class _DashboardState extends State<Dashboard>
                 ],
               ),
             ),
-            Container(
-              color: Colors.white,
-              height: 400,
-              child: PageView.builder(
-                clipBehavior: Clip.none,
-                physics: const NeverScrollableScrollPhysics(),
-                controller: summaryController,
-                itemCount: 4,
-                itemBuilder: (_, i) {
-                  return WeekSummary(week: i);
-                },
-              ),
-            ),
+
           ],
         ),
       ],

@@ -28,133 +28,133 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-List<WeekData> weeksData = [
+List<WeekData> hourData = [
+  //오전
   WeekData(
     days: [
       DayData(
-        day: 0,
-        laughs: 2,
-      ),
-      DayData(
-        day: 1,
-        laughs: 8,
-      ),
-      DayData(
-        day: 2,
-        laughs: 3,
-      ),
-      DayData(
-        day: 3,
+        hour: 1,
         laughs: 1,
       ),
       DayData(
-        day: 4,
-        laughs: 7,
+        hour: 1,
+        laughs: 1,
       ),
       DayData(
-        day: 5,
-        laughs: 9,
+        hour: 2,
+        laughs: 1,
       ),
       DayData(
-        day: 6,
-        laughs: 5,
+        hour: 3,
+        laughs: 1,
       ),
+      DayData(
+        hour: 4,
+        laughs: 1,
+      ),
+      DayData(
+        hour: 5,
+        laughs: 1,
+      ),
+      DayData(
+        hour: 6,
+        laughs: 1,
+      ),
+      DayData(
+        hour: 6,
+        laughs: 1,
+      ),
+      DayData(
+        hour: 7,
+        laughs: 1,
+      ),
+
+      DayData(
+        hour: 8,
+        laughs: 1,
+      ),
+      DayData(
+        hour: 9,
+        laughs: 1,
+      ),
+      DayData(
+        hour: 10,
+        laughs: 1,
+      ),
+      DayData(
+        hour: 11,
+        laughs: 1,
+      ),
+
     ],
   ),
+
+
+  //오후
   WeekData(
     days: [
+      //12시
       DayData(
-        day: 0,
+        hour: 0,
         laughs: 9,
       ),
       DayData(
-        day: 1,
+        hour: 1,
         laughs: 6,
       ),
       DayData(
-        day: 2,
+        hour: 2,
         laughs: 11,
       ),
       DayData(
-        day: 3,
+        hour: 3,
         laughs: 8,
       ),
       DayData(
-        day: 4,
+        hour: 4,
         laughs: 14,
       ),
       DayData(
-        day: 5,
+        hour: 5,
         laughs: 10,
       ),
       DayData(
-        day: 6,
+        hour: 6,
         laughs: 4,
       ),
     ],
   ),
-  WeekData(
-    days: [
-      DayData(
-        day: 0,
-        laughs: 0,
-      ),
-      DayData(
-        day: 1,
-        laughs: 2,
-      ),
-      DayData(
-        day: 2,
-        laughs: 3,
-      ),
-      DayData(
-        day: 3,
-        laughs: 0,
-      ),
-      DayData(
-        day: 4,
-        laughs: 4,
-      ),
-      DayData(
-        day: 5,
-        laughs: 3,
-      ),
-      DayData(
-        day: 6,
-        laughs: 3,
-      ),
-    ],
-  ),
+
 ];
 
 WeekData zeroStateData = WeekData(
   days: [
     DayData(
-      day: 0,
+      hour: 0,
       laughs: 0,
     ),
     DayData(
-      day: 1,
+      hour: 1,
       laughs: 0,
     ),
     DayData(
-      day: 2,
+      hour: 2,
       laughs: 0,
     ),
     DayData(
-      day: 3,
+      hour: 3,
       laughs: 0,
     ),
     DayData(
-      day: 4,
+      hour: 4,
       laughs: 0,
     ),
     DayData(
-      day: 5,
+      hour: 5,
       laughs: 0,
     ),
     DayData(
-      day: 6,
+      hour: 6,
       laughs: 0,
     ),
   ],
@@ -166,7 +166,7 @@ class WeekData {
 }
 
 class DayData {
-  DayData({required this.day, required this.laughs});
-  int day;
+  DayData({required this.hour, required this.laughs});
+  int hour;
   int laughs;
 }
